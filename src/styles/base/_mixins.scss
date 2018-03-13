@@ -1,0 +1,11 @@
+// media queries
+// using ems to take into account user-defined font-size
+// breakpoint arguments: phone, tablet-p, tablet-l, desktop-lg
+
+@mixin format($breakpoint) {
+  @if $breakpoint == tablet-p {
+    @media only screen and (min-width: 45em) {
+      @content;
+    } // 900px
+  }
+}

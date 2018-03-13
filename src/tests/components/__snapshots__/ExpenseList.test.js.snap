@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the ExpenseList when no there are no expenses 1`] = `
+<div>
+  <h1>
+    Expense List
+  </h1>
+  <p>
+    You have 
+    0
+     expenses
+  </p>
+</div>
+`;
+
+exports[`should render the ExpenseList with expenses 1`] = `
+<div>
+  <h1>
+    Expense List
+  </h1>
+  <p>
+    You have 
+    0
+     expenses
+  </p>
+  <p>
+    Create an expense or clear the date range filter to see additional expenses
+  </p>
+</div>
+`;

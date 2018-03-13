@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseListFilters component properly (with default filters) 1`] = `
+<div>
+  <h3>
+    Applied Filters
+  </h3>
+  Text search:
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  Sort expenses by:
+  <select
+    id="sort"
+    name="sort"
+    onChange={[Function]}
+    value="date"
+  >
+    <option
+      value="date"
+    >
+      date
+    </option>
+    <option
+      value="amount"
+    >
+      amount
+    </option>
+  </select>
+  <withStyles(DateRangePicker)
+    block={false}
+    customArrowIcon={null}
+    customCloseIcon={null}
+    customInputIcon={null}
+    disabled={false}
+    enableOutsideDays={false}
+    endDate={null}
+    endDateId="end"
+    firstDayOfWeek={null}
+    focusedInput={null}
+    hideKeyboardShortcutsPanel={false}
+    horizontalMargin={0}
+    initialVisibleMonth={null}
+    isOutsideRange={[Function]}
+    isRTL={false}
+    keepFocusOnInput={false}
+    keepOpenOnDateSelect={false}
+    navNext={null}
+    navPrev={null}
+    noBorder={false}
+    numberOfMonths={1}
+    onDatesChange={[Function]}
+    onFocusChange={[Function]}
+    readOnly={false}
+    regular={false}
+    renderCalendarInfo={null}
+    renderDayContents={null}
+    renderMonth={null}
+    reopenPickerOnClearDates={false}
+    required={false}
+    screenReaderInputMessage=""
+    showClearDates={true}
+    showDefaultInputIcon={false}
+    small={false}
+    startDate={null}
+    startDateId="start"
+    verticalHeight={null}
+    withFullScreenPortal={false}
+    withPortal={false}
+  />
+</div>
+`;
+
+exports[`should render ExpenseListFilters component properly (with unique filters) 1`] = `
+<div>
+  <h3>
+    Applied Filters
+  </h3>
+  Text search:
+  <input
+    onChange={[Function]}
+    type="text"
+    value="duck"
+  />
+  Sort expenses by:
+  <select
+    id="sort"
+    name="sort"
+    onChange={[Function]}
+    value="amount"
+  >
+    <option
+      value="date"
+    >
+      date
+    </option>
+    <option
+      value="amount"
+    >
+      amount
+    </option>
+  </select>
+  <withStyles(DateRangePicker)
+    block={false}
+    customArrowIcon={null}
+    customCloseIcon={null}
+    customInputIcon={null}
+    disabled={false}
+    enableOutsideDays={false}
+    endDate={"2017-05-01T16:00:00.000Z"}
+    endDateId="end"
+    firstDayOfWeek={null}
+    focusedInput={null}
+    hideKeyboardShortcutsPanel={false}
+    horizontalMargin={0}
+    initialVisibleMonth={null}
+    isOutsideRange={[Function]}
+    isRTL={false}
+    keepFocusOnInput={false}
+    keepOpenOnDateSelect={false}
+    navNext={null}
+    navPrev={null}
+    noBorder={false}
+    numberOfMonths={1}
+    onDatesChange={[Function]}
+    onFocusChange={[Function]}
+    readOnly={false}
+    regular={false}
+    renderCalendarInfo={null}
+    renderDayContents={null}
+    renderMonth={null}
+    reopenPickerOnClearDates={false}
+    required={false}
+    screenReaderInputMessage=""
+    showClearDates={true}
+    showDefaultInputIcon={false}
+    small={false}
+    startDate={"2017-04-01T16:00:00.000Z"}
+    startDateId="start"
+    verticalHeight={null}
+    withFullScreenPortal={false}
+    withPortal={false}
+  />
+</div>
+`;

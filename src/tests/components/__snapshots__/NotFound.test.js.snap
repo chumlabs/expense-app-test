@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NotFound component 1`] = `
+<div>
+  <p>
+    We can't find the page you are looking for
+  </p>
+  <p>
+    Head back to 
+    <Link
+      replace={false}
+      to="/"
+    >
+      the home page
+    </Link>
+  </p>
+</div>
+`;
