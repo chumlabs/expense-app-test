@@ -4,14 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "serve-backup": "live-server public/",
     "build:dev": "webpack --env development",
     "build:prod": "webpack -p --env production",
     "dev": "webpack-dev-server",
     "test": "jest --config=jest.config.json",
-    "test-watch": "jest --config=jest.config.json --watch"
+    "test-watch": "jest --config=jest.config.json --watch",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
+    "express": "^4.16.3",
     "moment": "^2.21.0",
     "normalize.css": "^8.0.0",
     "react": "^16.2.0",
