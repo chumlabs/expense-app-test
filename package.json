@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": "9.8"
+    "node": "9.8.x",
+    "npm": "5.7.x"
   },
   "scripts": {
     "build:dev": "webpack --env development",
@@ -16,19 +17,6 @@
     "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "moment": "^2.21.0",
-    "normalize.css": "^8.0.0",
-    "react": "^16.2.0",
-    "react-dates": "^16.3.6",
-    "react-dom": "^16.2.0",
-    "react-modal": "^3.2.1",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "validator": "^9.4.0"
-  },
-  "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -37,19 +25,32 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.9",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.1",
+    "express": "^4.16.3",
     "extract-text-webpack-plugin": "^3.0.2",
-    "jest": "^22.4.2",
+    "moment": "^2.21.0",
     "node-sass": "^4.7.2",
+    "normalize.css": "^8.0.0",
     "raf": "^3.4.0",
-    "react-test-renderer": "^16.2.0",
+    "react": "^16.2.0",
+    "react-dates": "^16.3.6",
+    "react-dom": "^16.2.0",
+    "react-modal": "^3.2.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
     "uuid": "^3.2.1",
+    "validator": "^9.4.0",
     "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.2"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
+    "jest": "^22.4.2",
+    "react-test-renderer": "^16.2.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }
