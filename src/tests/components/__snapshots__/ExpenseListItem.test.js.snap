@@ -17,7 +17,7 @@ exports[`should render ExpenseListItem component with expense data 1`] = `
     </li>
     <li>
       amount: 
-      7.00
+      $7.00
     </li>
     <li>
       created: 
