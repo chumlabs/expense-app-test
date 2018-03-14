@@ -1,8 +1,5 @@
 # build artifacts
-public/bundle.js
-public/bundle.js.map
-public/styles.css
-public/styles.css.map
+public/dist/
 
 # Dependencies
 node_modules/
