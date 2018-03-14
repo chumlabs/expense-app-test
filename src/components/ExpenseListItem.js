@@ -23,33 +23,3 @@ const ExpenseListItem = ({ id, description, note, amount, createdAt }) => (
 );
 
 export default ExpenseListItem;
-
-// --------------------------
-// // alt version - attempt to make purely presentational - no dispatcha action needed
-// const ExpenseListItem = ({
-//   id,
-//   description,
-//   note,
-//   amount,
-//   createdAt,
-//   dispatch,
-//   onListItemClick
-// }) => (
-//   <div>
-//     <h3>{description}</h3>
-//     <ul>
-//       <li>note: {note}</li>
-//       <li>amount: {amount}</li>
-//       <li>created: {createdAt}</li>
-//     </ul>
-//     <button onClick={onListItemClick(id)}>Remove Expense</button>
-//   </div>
-// );
-
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//   onListItemClick: id => {
-//     dispatch(removeExpense({ id }));
-//   }
-// });
-
-// export default connect(null, mapDispatchToProps)(ExpenseListItem);

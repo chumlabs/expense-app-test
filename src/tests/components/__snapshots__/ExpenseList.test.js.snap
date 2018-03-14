@@ -6,9 +6,7 @@ exports[`should render the ExpenseList when no there are no expenses 1`] = `
     Expense List
   </h1>
   <p>
-    You have 
-    0
-     expenses
+    Create an expense or change the filters to see additional expenses
   </p>
 </div>
 `;
@@ -18,13 +16,29 @@ exports[`should render the ExpenseList with expenses 1`] = `
   <h1>
     Expense List
   </h1>
-  <p>
-    You have 
-    0
-     expenses
-  </p>
-  <p>
-    Create an expense or clear the date range filter to see additional expenses
-  </p>
+  <ExpenseListItem
+    amount={700}
+    createdAt={1491062400000}
+    description="item 1 - abc"
+    id="1"
+    key="1"
+    note="lowest amount, middle date"
+  />
+  <ExpenseListItem
+    amount={2000}
+    createdAt={1488387600000}
+    description="item 2 - bcd"
+    id="2"
+    key="2"
+    note="highest amount, earliest date"
+  />
+  <ExpenseListItem
+    amount={1100}
+    createdAt={1493654400000}
+    description="item 3 - cdf"
+    id="3"
+    key="3"
+    note="middle amount,  latest date"
+  />
 </div>
 `;

@@ -4,7 +4,7 @@ import { ExpenseList } from '../../components/ExpenseList';
 import expenses from '../fixtures/expenseData'; // mock data
 
 test('should render the ExpenseList with expenses', () => {
-  const wrapper = shallow(<ExpenseList {...expenses[0]} />);
+  const wrapper = shallow(<ExpenseList expenses={expenses} />);
 
   expect(wrapper).toMatchSnapshot();
 });
