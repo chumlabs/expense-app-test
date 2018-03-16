@@ -4,15 +4,15 @@ import { EditExpense } from '../../components/EditExpense';
 import expenses from '../fixtures/expenseData';
 
 // test setup
-let expense, editExpense, history, startRemoveExpense, wrapper;
+let expense, startEditExpense, history, startRemoveExpense, wrapper;
 beforeEach(() => {
   expense = expenses[0];
-  editExpense = jest.fn();
+  startEditExpense = jest.fn();
   history = { push: jest.fn() };
   startRemoveExpense = jest.fn();
   wrapper = shallow(
     <EditExpense
-      editExpense={editExpense}
+      startEditExpense={startEditExpense}
       history={history}
       startRemoveExpense={startRemoveExpense}
       expense={expense}
@@ -24,10 +24,10 @@ test('should render EditExpense component properly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should handle onSubmit handler (editExpense) from ExpenseForm', () => {
+test('should handle onSubmit handler (startEditExpense) from ExpenseForm', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expense);
   expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(editExpense).toHaveBeenLastCalledWith(expense.id, expense);
+  expect(startEditExpense).toHaveBeenLastCalledWith(expense.id, expense);
 });
 
 test('should handle onClick handler (startRemoveExpense) from ExpenseForm', () => {

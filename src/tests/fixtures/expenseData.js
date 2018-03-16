@@ -35,7 +35,7 @@ const catOne = {
   id: '46',
   description: 'Alibi 54',
   note: 'fantastic bluewater cat with rotating mast and versatile helms',
-  amount: 1200000,
+  amount: 120000000,
   createdAt: midDate.valueOf()
 };
 
@@ -43,7 +43,7 @@ const catTwo = {
   id: '47',
   description: 'HH 55',
   note: 'all carbon body and fantastic layout',
-  amount: 1500000,
+  amount: 150000000,
   createdAt: earliestDate.valueOf()
 };
 
@@ -51,7 +51,7 @@ const catThree = {
   id: '48',
   description: 'Gunboat 55',
   note: 'the original performance cruising cat',
-  amount: 1200000,
+  amount: 120000000,
   createdAt: latestDate.valueOf()
 };
 

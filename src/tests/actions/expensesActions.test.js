@@ -4,6 +4,7 @@ import {
   addExpense,
   startAddExpense,
   editExpense,
+  startEditExpense,
   removeExpense,
   startRemoveExpense,
   setExpenses,
@@ -119,7 +120,7 @@ test('should add expense to database and redux store using defaults', done => {
     });
 });
 
-test('should setup set expense object with data', () => {
+test('should setup SET_EXPENSES action object properly', () => {
   const actionObj = setExpenses(expenses);
   expect(actionObj).toEqual({
     type: 'SET_EXPENSES',
@@ -127,7 +128,7 @@ test('should setup set expense object with data', () => {
   });
 });
 
-test('should fetch the expenses from database and pass action obj', done => {
+test('should fetch the expenses from database and pass SET_EXPENSES action obj', done => {
   const store = createMockStore({});
   store.dispatch(startSetExpenses()).then(() => {
     const actions = store.getActions();
@@ -139,7 +140,28 @@ test('should fetch the expenses from database and pass action obj', done => {
   });
 });
 
-test('should remove expense from database and pass action obj', done => {
+test('should edit existing expense on db and pass EDIT_EXPENSE action obj', done => {
+  const store = createMockStore({});
+  const { id, description, note, amount, createdAt } = catData[2];
+  const updateObj = { description, note, amount: 70000000, createdAt };
+  store
+    .dispatch(startEditExpense(id, updateObj))
+    .then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toEqual({
+        type: 'EDIT_EXPENSE',
+        id,
+        updateObj
+      });
+      return db.ref(`expenses/${id}`).once('value');
+    })
+    .then(snapshot => {
+      expect(snapshot.val()).toEqual(updateObj);
+      done();
+    });
+});
+
+test('should remove expense from database and pass EDIT_EXPENSE action obj', done => {
   const store = createMockStore({});
   const id = catData[1].id;
   store
