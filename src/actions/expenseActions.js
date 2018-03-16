@@ -64,3 +64,30 @@ export const editExpense = (id, updateObj) => ({
   id,
   updateObj
 });
+
+// SET_EXPENSES
+export const setExpenses = expenses => ({
+  type: 'SET_EXPENSES',
+  expenses
+});
+
+export const startSetExpenses = () => {
+  return dispatch => {
+    // get expense data
+    return db
+      .ref('expenses')
+      .once('value')
+      .then(snapshot => {
+        // parse data into array
+        const expenses = [];
+        snapshot.forEach(child => {
+          expenses.push({
+            id: child.key,
+            ...child.val()
+          });
+          // send expenses to action creator
+          dispatch(setExpenses(expenses));
+        });
+      });
+  };
+};

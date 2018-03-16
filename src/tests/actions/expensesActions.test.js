@@ -4,13 +4,29 @@ import {
   addExpense,
   startAddExpense,
   editExpense,
-  removeExpense
+  removeExpense,
+  setExpenses,
+  startSetExpenses
 } from '../../actions/expenseActions';
 import db from '../../firebase/firebase';
-import expenses from '../fixtures/expenseData';
+import expenses, { catData } from '../fixtures/expenseData';
 
 // SETUP
 const createMockStore = configureMockStore([thunk]);
+
+beforeEach(done => {
+  const expensesData = catData.reduce(
+    (exp, { id, description, note, amount, createdAt }) => {
+      exp[id] = { description, note, amount, createdAt };
+      return exp;
+    },
+    {}
+  );
+  db
+    .ref('expenses')
+    .set(expensesData)
+    .then(() => done());
+});
 
 // TESTS
 test('should return an action object to remove an expense', () => {
@@ -100,4 +116,24 @@ test('should add expense to database and redux store using defaults', done => {
       expect(snapshot.val()).toEqual(expenseDefaults);
       done();
     });
+});
+
+test('should setup set expense object with data', () => {
+  const actionObj = setExpenses(expenses);
+  expect(actionObj).toEqual({
+    type: 'SET_EXPENSES',
+    expenses
+  });
+});
+
+test('should fetch the expenses from database', done => {
+  const store = createMockStore({});
+  store.dispatch(startSetExpenses()).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: 'SET_EXPENSES',
+      expenses: catData
+    });
+    done();
+  });
 });

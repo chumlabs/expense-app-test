@@ -10,7 +10,7 @@ import 'react-dates/lib/css/_datepicker.css';
 // - components
 import AppRouter from './routes/AppRouter';
 import configureStore from './store/configureStore';
-import { addExpense } from './actions/expenseActions';
+import { startSetExpenses } from './actions/expenseActions';
 import getVisibleExpenses from './selectors/expenses';
 import './firebase/firebase';
 
@@ -23,4 +23,8 @@ const mainApp = (
 );
 
 const appRoot = document.getElementById('root');
-ReactDOM.render(mainApp, appRoot);
+
+ReactDOM.render(<p>Loading...</p>, appRoot); // loading message
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(mainApp, appRoot);
+});
