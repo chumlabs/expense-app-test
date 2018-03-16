@@ -5,6 +5,7 @@ import {
   startAddExpense,
   editExpense,
   removeExpense,
+  startRemoveExpense,
   setExpenses,
   startSetExpenses
 } from '../../actions/expenseActions';
@@ -126,7 +127,7 @@ test('should setup set expense object with data', () => {
   });
 });
 
-test('should fetch the expenses from database', done => {
+test('should fetch the expenses from database and pass action obj', done => {
   const store = createMockStore({});
   store.dispatch(startSetExpenses()).then(() => {
     const actions = store.getActions();
@@ -136,4 +137,24 @@ test('should fetch the expenses from database', done => {
     });
     done();
   });
+});
+
+test('should remove expense from database and pass action obj', done => {
+  const store = createMockStore({});
+  const id = catData[1].id;
+  store
+    .dispatch(startRemoveExpense({ id }))
+    .then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toEqual({
+        type: 'REMOVE_EXPENSE',
+        id
+      });
+      // check item is no longer in db
+      return db.ref(`expenses/${id}`).once('value');
+    })
+    .then(snapshot => {
+      expect(snapshot.val()).toBeFalsy();
+      done();
+    });
 });
