@@ -1,6 +1,6 @@
 // IMPORTS
 // -libraries
-import uuid from 'uuid';
+import db from '../firebase/firebase';
 
 // ACTION CREATORS/GENERATORS
 
@@ -11,21 +11,36 @@ import uuid from 'uuid';
 // -- note = string (optional)
 // -- amount = number (optional)
 // -- createdAt = moment object (optional)
-export const addExpense = ({
-  description = '',
-  note = '',
-  amount = 0,
-  createdAt = null
-} = {}) => ({
+export const addExpense = expense => ({
   type: 'ADD_EXPENSE',
-  expense: {
-    id: uuid(),
-    description,
-    note,
-    amount,
-    createdAt
-  }
+  expense
 });
+
+export const startAddExpense = (expenseData = {}) => {
+  return dispatch => {
+    // prettier-ignore
+    const { 
+      description = '', 
+      note = '', 
+      amount = 0, 
+      createdAt = 0
+    } = expenseData;
+
+    const expense = { description, note, amount, createdAt };
+
+    return db
+      .ref('expenses')
+      .push(expense)
+      .then(ref => {
+        dispatch(
+          addExpense({
+            id: ref.key,
+            ...expense
+          })
+        );
+      });
+  };
+};
 
 // REMOVE_EXPENSE
 // argument(s):

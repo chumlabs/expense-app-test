@@ -1,9 +1,9 @@
 import moment from 'moment';
 
 // mock expense data
-const earliestDate = moment(1488387600000); // April 1, 2017
-const midDate = moment(1491062400000); // March 1, 2017
-const latestDate = moment(1493654400000); // May 1, 2017
+export const earliestDate = moment(1488387600000); // March 1, 2017
+export const midDate = moment(1491062400000); // April 1, 2017
+export const latestDate = moment(1493654400000); // May 1, 2017
 export const now = moment();
 
 const expenseOne = {

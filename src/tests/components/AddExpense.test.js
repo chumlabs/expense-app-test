@@ -4,11 +4,11 @@ import { AddExpense } from '../../components/AddExpense';
 import expenses from '../fixtures/expenseData'; // mock data
 
 // test setup
-let addExpense, history, wrapper;
+let startAddExpense, history, wrapper;
 beforeEach(() => {
-  addExpense = jest.fn(); // mock func for addExpense
+  startAddExpense = jest.fn(); // mock func for startAddExpense
   history = { push: jest.fn() }; // mock func for history prop
-  wrapper = shallow(<AddExpense addExpense={addExpense} history={history} />);
+  wrapper = shallow(<AddExpense startAddExpense={startAddExpense} history={history} />);
 }); // used by following tests
 
 // tests
@@ -19,5 +19,5 @@ test('should render AddExpense properly', () => {
 test('should handle onSubmit handler properly from ExpenseForm component', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expenses[0]);
   expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(addExpense).toHaveBeenLastCalledWith(expenses[0]);
+  expect(startAddExpense).toHaveBeenLastCalledWith(expenses[0]);
 });
