@@ -2,17 +2,17 @@
 // - libraries
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 // - css
 import 'normalize.css/normalize.css';
 import './styles/main.scss';
 import 'react-dates/lib/css/_datepicker.css';
 // - components
-import AppRouter from './routes/AppRouter';
+import AppRouter, { history } from './routes/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenseActions';
-import getVisibleExpenses from './selectors/expenses';
-import './firebase/firebase';
+import { login, logout } from './actions/authActions';
+import { firebase } from './firebase/firebase';
 
 const store = configureStore();
 
@@ -22,9 +22,32 @@ const mainApp = (
   </Provider>
 );
 
-const appRoot = document.getElementById('root');
+let hasRendered = false;
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(mainApp, appRoot);
+    hasRendered = true;
+  }
+};
 
+const appRoot = document.getElementById('root');
 ReactDOM.render(<p>Loading...</p>, appRoot); // loading message
-store.dispatch(startSetExpenses()).then(() => {
-  ReactDOM.render(mainApp, appRoot);
+
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    console.log('logged in');
+    console.log(`uid: `, user.uid);
+    store.dispatch(login(user.uid));
+    store.dispatch(startSetExpenses()).then(() => {
+      renderApp();
+      if (history.location.pathname === '/') {
+        history.push('./dashboard');
+      }
+    });
+  } else {
+    store.dispatch(logout());
+    renderApp();
+    history.push('/');
+    console.log('logged out');
+  }
 });

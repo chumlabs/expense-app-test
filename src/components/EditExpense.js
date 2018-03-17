@@ -11,12 +11,12 @@ export class EditExpense extends Component {
   onSubmit = exp => {
     // console.log('expense updated', exp);
     this.props.startEditExpense(this.props.expense.id, exp);
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
 
   onClick = () => {
     this.props.startRemoveExpense({ id: this.props.expense.id });
-    this.props.history.push('/');
+    this.props.history.push('/dashboard');
   };
 
   render() {

@@ -7,18 +7,13 @@ const Navigation = () => (
   <nav>
     <ul>
       <li>
-        <NavLink exact to="/" activeClassName="is-active">
-          Home
+        <NavLink to="/dashboard" activeClassName="is-active">
+          Dashboard
         </NavLink>
       </li>
       <li>
         <NavLink to="/create" activeClassName="is-active">
-          Create
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/help" activeClassName="is-active">
-          Help
+          Add Expense
         </NavLink>
       </li>
     </ul>

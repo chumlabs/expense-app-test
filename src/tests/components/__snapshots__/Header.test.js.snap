@@ -6,5 +6,10 @@ exports[`should render the Header component correctly 1`] = `
     Expensify
   </h1>
   <Navigation />
+  <button
+    onClick={[Function]}
+  >
+    Logout
+  </button>
 </header>
 `;
