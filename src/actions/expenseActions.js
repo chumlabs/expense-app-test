@@ -17,7 +17,8 @@ export const addExpense = expense => ({
 });
 
 export const startAddExpense = (expenseData = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     // prettier-ignore
     const { 
       description = '', 
@@ -29,7 +30,7 @@ export const startAddExpense = (expenseData = {}) => {
     const expense = { description, note, amount, createdAt };
 
     return db
-      .ref('expenses')
+      .ref(`users/${uid}/expenses`)
       .push(expense)
       .then(ref => {
         dispatch(
@@ -52,9 +53,10 @@ export const removeExpense = ({ id } = {}) => ({
 });
 
 export const startRemoveExpense = ({ id } = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return db
-      .ref(`expenses/${id}`)
+      .ref(`users/${uid}/expenses/${id}`)
       .remove()
       .then(() => {
         dispatch(removeExpense({ id }));
@@ -77,8 +79,9 @@ export const editExpense = (id, updateObj) => ({
 });
 
 export const startEditExpense = (id, updateObj) => {
-  return dispatch =>
-    db.ref(`expenses/${id}`).update(
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return db.ref(`users/${uid}/expenses/${id}`).update(
       {
         ...updateObj
       },
@@ -86,6 +89,7 @@ export const startEditExpense = (id, updateObj) => {
         dispatch(editExpense(id, updateObj));
       }
     );
+  };
 };
 
 // SET_EXPENSES
@@ -95,10 +99,11 @@ export const setExpenses = expenses => ({
 });
 
 export const startSetExpenses = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     // get expense data
     return db
-      .ref('expenses')
+      .ref(`users/${uid}/expenses`)
       .once('value')
       .then(snapshot => {
         // parse data into array
