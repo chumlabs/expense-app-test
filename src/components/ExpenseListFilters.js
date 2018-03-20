@@ -44,32 +44,45 @@ export class ExpenseListFilters extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Applied Filters</h3>
-        Text search:
-        <input type="text" value={this.props.filters.text} onChange={this.onTextChange} />
-        Sort expenses by:
-        <select
-          name="sort"
-          id="sort"
-          value={this.props.filters.sortBy}
-          onChange={this.onSortChange}
-        >
-          <option value="date">date</option>
-          <option value="amount">amount</option>
-        </select>
-        <DateRangePicker
-          startDate={this.props.filters.startDate}
-          endDate={this.props.filters.endDate}
-          onDatesChange={this.onDatesChange}
-          focusedInput={this.state.calendarFocused}
-          onFocusChange={this.onFocusChange}
-          numberOfMonths={1}
-          isOutsideRange={() => false}
-          showClearDates={true}
-          startDateId={'start'}
-          endDateId={'end'}
-        />
+      <div className="content-container">
+        <div className="filter-group">
+          <div className="filter-group__item">
+            <input
+              type="text"
+              className="filter-group__text-input"
+              value={this.props.filters.text}
+              onChange={this.onTextChange}
+              placeholder="Enter text to search"
+            />
+          </div>
+          <div className="filter-group__item">
+            <DateRangePicker
+              startDate={this.props.filters.startDate}
+              endDate={this.props.filters.endDate}
+              onDatesChange={this.onDatesChange}
+              focusedInput={this.state.calendarFocused}
+              onFocusChange={this.onFocusChange}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+              showClearDates={true}
+              startDateId={'start'}
+              endDateId={'end'}
+            />
+          </div>
+          <div className="filter-group__item">
+            Sort By:&nbsp;
+            <select
+              name="sort"
+              id="sort"
+              className="filter-group__select-box"
+              value={this.props.filters.sortBy}
+              onChange={this.onSortChange}
+            >
+              <option value="date">date</option>
+              <option value="amount">amount</option>
+            </select>
+          </div>
+        </div>
       </div>
     );
   }

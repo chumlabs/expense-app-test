@@ -1,0 +1,39 @@
+.button {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    border: none;
+    padding: 1.3rem;
+    border-radius: 3px;
+    line-height: 1;
+    background-color: $color-blue;
+    text-decoration: none;
+    color: $color-white;
+    font-size: $font-size-med;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: lighten($color-blue, 10%);
+  }
+
+  &--no-bg {
+    background: none;
+
+    &:hover {
+      background: none;
+      color: rgb(247, 78, 78);
+    }
+  }
+
+  &--secondary {
+    background: rgb(230, 61, 61);
+
+    &:hover {
+      background: lighten(rgb(230, 61, 61), 5%);
+    }
+  }
+}

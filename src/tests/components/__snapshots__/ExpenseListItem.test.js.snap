@@ -2,27 +2,31 @@
 
 exports[`should render ExpenseListItem component with expense data 1`] = `
 <div>
-  <h3>
-    <Link
-      replace={false}
-      to="/edit/1"
-    >
-      item 1 - abc
-    </Link>
-  </h3>
-  <ul>
-    <li>
-      note: 
-      lowest amount, middle date
-    </li>
-    <li>
-      amount: 
-      $7.00
-    </li>
-    <li>
-      created: 
-      Apr 1st, 2017
-    </li>
-  </ul>
+  <Link
+    className="list-item"
+    replace={false}
+    to="/edit/1"
+  >
+    <div>
+      <h3
+        className="list-item__title"
+      >
+        item 1 - abc
+         
+      </h3>
+      <span
+        className="list-item__subtitle"
+      >
+        Apr 1st, 2017
+      </span>
+    </div>
+    <div>
+      <h3
+        className="list-item__data"
+      >
+        $7.00
+      </h3>
+    </div>
+  </Link>
 </div>
 `;

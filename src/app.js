@@ -13,6 +13,7 @@ import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenseActions';
 import { login, logout } from './actions/authActions';
 import { firebase } from './firebase/firebase';
+import Loading from './components/Loading';
 
 const store = configureStore();
 
@@ -31,7 +32,7 @@ const renderApp = () => {
 };
 
 const appRoot = document.getElementById('root');
-ReactDOM.render(<p>Loading...</p>, appRoot); // loading message
+ReactDOM.render(<Loading />, appRoot); // loading message
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {

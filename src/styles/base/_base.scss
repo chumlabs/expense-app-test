@@ -1,4 +1,4 @@
-BASE *,
+base *,
 *::before,
 *::after {
   margin: 0;
@@ -7,11 +7,12 @@ BASE *,
 }
 
 html {
-  font-size: 50%;
+  font-size: 62.5%;
+  // font-size: 50%;
 
-  @media screen and (min-width: 45em) {
-    font-size: 62.5%;
-  }
+  // @media screen and (min-width: 45em) {
+  //   font-size: 62.5%;
+  // }
 }
 
 body {
@@ -29,6 +30,6 @@ body {
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
-  line-height: 1.75; // check actual value later
+  line-height: 1.7; // check actual value later
   color: $color-gray-dark-2;
 }

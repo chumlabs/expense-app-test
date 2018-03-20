@@ -3,9 +3,14 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/authActions';
 
 export const Login = ({ startLogin }) => (
-  <div>
-    <h1>Login to Expensify</h1>
-    <button onClick={startLogin}>Login</button>
+  <div className="box-layout">
+    <div className="box-layout__login-box">
+      <h1 className="box-layout__login-title">Expensify</h1>
+      <p>Better insights into how you use your money</p>
+      <button onClick={startLogin} className="button">
+        Login with Google
+      </button>
+    </div>
   </div>
 );
 

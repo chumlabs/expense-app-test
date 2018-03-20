@@ -1,0 +1,24 @@
+.page-header {
+  background: $color-gray-light-1;
+  padding: $spacing-larger 0;
+  margin-bottom: $spacing-large;
+
+  &__title {
+    margin: 0;
+    font-weight: 300;
+    color: $color-gray-dark-2;
+  }
+  &__summary {
+    margin: 0;
+    font-size: $font-size-med;
+    color: #555; // $color-gray-dark-1;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  &__actions {
+    padding: $spacing-larger 0 0;
+  }
+}

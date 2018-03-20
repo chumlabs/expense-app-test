@@ -4,5 +4,16 @@
 @import './base/_base.scss';
 @import './base/_utilities.scss';
 
+// partials
+@import './components/_content-container.scss';
+
 // components
+@import './components/_bottons.scss';
+@import './components/_list.scss';
+@import './components/_form-group.scss';
+@import './components/_loader.scss';
 @import './components/_nav.scss';
+@import './components/_box_layout.scss';
+@import './components/_header.scss';
+@import './components/_page-header.scss';
+@import './components/_filter-group.scss';

@@ -2,26 +2,41 @@
 
 exports[`should render EditExpense component properly 1`] = `
 <div>
-  <h2>
-    Expensify - Edit Entry
-  </h2>
-  <ExpenseForm
-    actionText="Update Expense"
-    expense={
-      Object {
-        "amount": 700,
-        "createdAt": 1491062400000,
-        "description": "item 1 - abc",
-        "id": "1",
-        "note": "lowest amount, middle date",
-      }
-    }
-    onSubmit={[Function]}
-  />
-  <button
-    onClick={[Function]}
+  <div
+    className="page-header"
   >
-    Remove Expense
-  </button>
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+        Edit Expense
+      </h1>
+    </div>
+  </div>
+  <div
+    className="content-container"
+  >
+    <ExpenseForm
+      actionText="Update Expense"
+      expense={
+        Object {
+          "amount": 700,
+          "createdAt": 1491062400000,
+          "description": "item 1 - abc",
+          "id": "1",
+          "note": "lowest amount, middle date",
+        }
+      }
+      onSubmit={[Function]}
+    />
+    <button
+      className="button button--secondary"
+      onClick={[Function]}
+    >
+      Remove Expense
+    </button>
+  </div>
 </div>
 `;

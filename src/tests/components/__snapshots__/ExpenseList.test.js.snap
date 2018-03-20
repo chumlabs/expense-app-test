@@ -1,44 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render the ExpenseList when no there are no expenses 1`] = `
-<div>
-  <h1>
-    Expense List
-  </h1>
-  <p>
-    Create an expense or change the filters to see additional expenses
-  </p>
+<div
+  className="content-container"
+>
+  <div
+    className="list"
+  >
+    <div
+      className="list-header"
+    >
+      <div
+        className="show-for-mobile"
+      >
+        Expenses
+      </div>
+      <div
+        className="show-for-desktop"
+      >
+        Expense
+      </div>
+      <div
+        className="show-for-desktop"
+      >
+        Amount
+      </div>
+    </div>
+    <div
+      className="list-body"
+    >
+      <div
+        className="list-item list-item--message"
+      >
+        Create an expense or change the filters to see additional expenses
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`should render the ExpenseList with expenses 1`] = `
-<div>
-  <h1>
-    Expense List
-  </h1>
-  <ExpenseListItem
-    amount={700}
-    createdAt={1491062400000}
-    description="item 1 - abc"
-    id="1"
-    key="1"
-    note="lowest amount, middle date"
-  />
-  <ExpenseListItem
-    amount={2000}
-    createdAt={1488387600000}
-    description="item 2 - bcd"
-    id="2"
-    key="2"
-    note="highest amount, earliest date"
-  />
-  <ExpenseListItem
-    amount={1100}
-    createdAt={1493654400000}
-    description="item 3 - cdf"
-    id="3"
-    key="3"
-    note="middle amount,  latest date"
-  />
+<div
+  className="content-container"
+>
+  <div
+    className="list"
+  >
+    <div
+      className="list-header"
+    >
+      <div
+        className="show-for-mobile"
+      >
+        Expenses
+      </div>
+      <div
+        className="show-for-desktop"
+      >
+        Expense
+      </div>
+      <div
+        className="show-for-desktop"
+      >
+        Amount
+      </div>
+    </div>
+    <div
+      className="list-body"
+    >
+      <ExpenseListItem
+        amount={700}
+        className="list__item"
+        createdAt={1491062400000}
+        description="item 1 - abc"
+        id="1"
+        key="1"
+        note="lowest amount, middle date"
+      />
+      <ExpenseListItem
+        amount={2000}
+        className="list__item"
+        createdAt={1488387600000}
+        description="item 2 - bcd"
+        id="2"
+        key="2"
+        note="highest amount, earliest date"
+      />
+      <ExpenseListItem
+        amount={1100}
+        className="list__item"
+        createdAt={1493654400000}
+        description="item 3 - cdf"
+        id="3"
+        key="3"
+        note="middle amount,  latest date"
+      />
+    </div>
+  </div>
 </div>
 `;

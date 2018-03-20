@@ -11,11 +11,6 @@ const Navigation = () => (
           Dashboard
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/create" activeClassName="is-active">
-          Add Expense
-        </NavLink>
-      </li>
     </ul>
   </nav>
 );

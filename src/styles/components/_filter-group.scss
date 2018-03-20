@@ -1,0 +1,45 @@
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-larger;
+  width: 100%;
+
+  @media only screen and (min-width: $breakpoint-desktop) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: inline-block;
+    margin-bottom: $spacing-large;
+    font-size: $font-size-med;
+
+    @media only screen and (min-width: $breakpoint-desktop) {
+      margin-right: $spacing-large;
+      margin-bottom: 0;
+    }
+
+    &:nth-child(2) {
+      // flex-grow: 1;
+      min-width: 32rem;
+    }
+  }
+
+  &__text-input,
+  &__select-box {
+    height: 5rem;
+    border: 1px solid #cacccd;
+    border-radius: 0;
+    background: $color-white;
+    font-size: $font-size-med-2;
+    color: #565a5c;
+    padding: 0 $spacing-med;
+    font-weight: 300;
+    outline: none;
+
+    @media only screen and (min-width: $breakpoint-desktop) {
+      font-size: $font-size-med;
+      padding: 0 $spacing-small;
+    }
+  }
+}
